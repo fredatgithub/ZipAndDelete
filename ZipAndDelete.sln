@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZipAndDelete", "ZipAndDelete\ZipAndDelete.csproj", "{3C507093-12D3-4A93-9244-4BC22D19FCEC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3C507093-12D3-4A93-9244-4BC22D19FCEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C507093-12D3-4A93-9244-4BC22D19FCEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C507093-12D3-4A93-9244-4BC22D19FCEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C507093-12D3-4A93-9244-4BC22D19FCEC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {862893F4-F681-46FF-B1C9-5342D43DB0AE}
+	EndGlobalSection
+EndGlobal
