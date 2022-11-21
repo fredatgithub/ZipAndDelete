@@ -189,7 +189,13 @@ namespace ZipAndDelete
           zipStream.SetLevel(zipLevel);
           foreach (string fileName in listOfFiles)
           {
-            ZipEntry zipEntry = new ZipEntry(fileName);
+            string filenameCorrected = fileName;
+            if (fileName.StartsWith("."))
+            {
+              filenameCorrected = fileName.Substring(2, fileName.Length - 2);
+            }
+
+            ZipEntry zipEntry = new ZipEntry(filenameCorrected);
             zipStream.PutNextEntry(zipEntry);
             using (FileStream fileStream = File.OpenRead(Path.Combine(folderPath, fileName)))
             {
