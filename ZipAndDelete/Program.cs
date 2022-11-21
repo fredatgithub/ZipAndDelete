@@ -107,9 +107,14 @@ namespace ZipAndDelete
           if (filename.EndsWith(argumentDictionary["extensionfilenamepattern"]) && !filename.EndsWith(argumentDictionary["exclusionextensionfilenamepattern"]))
           {
             // zip the file
-
-            //File.Move(filename, ChangeFileExtension(filename, argumentDictionary["newextension"]));
+            ZipFiles(argumentDictionary["directory"], new List<string> { $"{filename}" }, $"{filename}.zip");
             numberOfFilesZipped++;
+
+            if (argumentDictionary["deleteaftercompression"].ToLower() == "true")
+            {
+              File.Delete($"{Path.Combine(argumentDictionary["directory"], $"{filename}")}");
+              numberOfFilesDeletedAfterBeingZipped++;
+            }
           }
           else if (argumentDictionary["extensionfilenamepattern"] == "*")
           {
@@ -119,9 +124,15 @@ namespace ZipAndDelete
             {
               try
               {
-
-                //File.Move(filename, ChangeFileExtension(filename, argumentDictionary["newextension"]));
+                // zip the file
+                ZipFiles(argumentDictionary["directory"], new List<string> { $"{filename}" }, $"{filename}.zip");
                 numberOfFilesZipped++;
+
+                if (argumentDictionary["deleteaftercompression"].ToLower() == "true")
+                {
+                  File.Delete($"{Path.Combine(argumentDictionary["directory"], $"{filename}")}");
+                  numberOfFilesDeletedAfterBeingZipped++;
+                }
               }
               catch (Exception)
               {
