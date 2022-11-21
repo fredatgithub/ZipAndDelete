@@ -27,7 +27,7 @@ namespace ZipAndDelete
         // Initialization of the argument dictionary with default values
         {"directory", "."},
         {"includesubdirectories", "false"},
-        {"extensionfilenamepattern", "*" },
+        {"extensionfilenamepattern", "txt" },
         {"exclusionextensionfilenamepattern", "exe" }, // we could add ,config, dll
         {"compressionlevel", "maximum" },
         {"deleteaftercompression", "false" },
@@ -41,7 +41,7 @@ namespace ZipAndDelete
       int numberOfFilesZipped = 0;
       int numberOfFilesDeletedAfterBeingZipped = 0;
       bool hasExtraArguments = false;
-      string datedLogFileName = string.Empty;
+      string datedLogFileName = $"LogFile-{DateTime.Now.ToShortDateString().Replace('/', '-')}.log";
       bool deleteFileAfterBeingZipped = false;
 
       // we split arguments into the dictionary
@@ -98,6 +98,11 @@ namespace ZipAndDelete
         }
       }
 
+      if (argumentDictionary["deleteaftercompression"].ToLower() == "true")
+      {
+        deleteFileAfterBeingZipped= true;
+      }
+
       // zipping files start here
       foreach (string filename in Directory.GetFiles(argumentDictionary["directory"], $"*.{argumentDictionary["extensionfilenamepattern"]}"))
       {
@@ -110,7 +115,7 @@ namespace ZipAndDelete
             ZipFiles(argumentDictionary["directory"], new List<string> { $"{filename}" }, $"{filename}.zip");
             numberOfFilesZipped++;
 
-            if (argumentDictionary["deleteaftercompression"].ToLower() == "true")
+            if (deleteFileAfterBeingZipped)
             {
               File.Delete($"{Path.Combine(argumentDictionary["directory"], $"{filename}")}");
               numberOfFilesDeletedAfterBeingZipped++;
@@ -128,7 +133,7 @@ namespace ZipAndDelete
                 ZipFiles(argumentDictionary["directory"], new List<string> { $"{filename}" }, $"{filename}.zip");
                 numberOfFilesZipped++;
 
-                if (argumentDictionary["deleteaftercompression"].ToLower() == "true")
+                if (deleteFileAfterBeingZipped)
                 {
                   File.Delete($"{Path.Combine(argumentDictionary["directory"], $"{filename}")}");
                   numberOfFilesDeletedAfterBeingZipped++;
@@ -308,14 +313,13 @@ namespace ZipAndDelete
       display(string.Empty);
       display("Examples:");
       display(string.Empty);
-      display(@"RenameFiles /directory=c:\sampleDir\ /oldextension=bat /newextension=txt /log=true");
+      display(@"ZipAndDelete /directory=. /extensionfilenamepattern=txt /log=true");
       display(string.Empty);
-      display(@"RenameFiles /oldextension=* /newextension=jpg");
+      display(@"ZipAndDelete /oldextension=* /newextension=jpg");
       display(string.Empty);
-      display("RenameFiles /help (this help)");
-      display("RenameFiles /? (this help)");
+      display("ZipAndDelete /help (this help)");
+      display("ZipAndDelete /? (this help)");
       display(string.Empty);
-
     }
 
     public static string GetAssemblyVersion()
