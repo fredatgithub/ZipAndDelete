@@ -221,33 +221,7 @@ namespace ZipAndDelete
           zipStream.Dispose();
         }
       }
-
-      //deleting only log files which have been zipped successfully
-      //try
-      //{
-      //  IEnumerable<string> allFileNameFromZipfile = GetAllFileNameFromZipFile(Path.Combine(folderPath, zipFileName));
-      //  if (allFileNameFromZipfile.Count() != 0)
-      //  {
-      //    foreach (string file in listOfFiles)
-      //    {
-      //      if (allFileNameFromZipfile.Contains(file))
-      //      {
-      //        if (File.Exists(Path.Combine(folderPath, file)))
-      //        {
-      //          File.Delete(Path.Combine(folderPath, file));
-      //        }
-      //      }
-      //    }
-      //  }
-      //}
-      //catch (Exception exception)
-      //{
-      //  // ignored here in helper class
-      //  Console.WriteLine(exception.Message);
-      //  Console.WriteLine(string.Empty);
-      //}
     }
-
 
     private enum CompressionLevel
     {
