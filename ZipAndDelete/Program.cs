@@ -28,7 +28,7 @@ namespace ZipAndDelete
         {"directory", "."},
         {"includesubdirectories", "false"},
         {"extensionfilenamepattern", "txt" },
-        {"exclusionextensionfilenamepattern", "exe" }, // we could add ,config, dll
+        {"exclusionextensionfilenamepattern", ".exe,.dll,.config" },
         {"compressionlevel", "maximum9" },
         {"deleteaftercompression", "false" },
         {"addextensionifnone", "false" },
@@ -109,7 +109,7 @@ namespace ZipAndDelete
         try
         {
           // add !filename.EndsWith(argumentDictionary["exclusionextensionfilenamepattern"].Split(',').Any())
-          if (filename.EndsWith(argumentDictionary["extensionfilenamepattern"]) && !filename.EndsWith(argumentDictionary["exclusionextensionfilenamepattern"]))
+          if (filename.EndsWith(argumentDictionary["extensionfilenamepattern"]) && !IsFileBinary(filename, argumentDictionary["exclusionextensionfilenamepattern"]))
           {
             // zip the file
             ZipFiles(argumentDictionary["directory"], new List<string> { $"{filename}" }, $"{filename}.zip");
