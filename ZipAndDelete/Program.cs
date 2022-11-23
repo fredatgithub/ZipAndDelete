@@ -306,5 +306,19 @@ namespace ZipAndDelete
       FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
       return string.Format("V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
     }
+    
+    public static bool IsFileBinary(string filename, string commaSeparatedBinaryExtensions)
+    {
+      bool result = false;
+      foreach (string extension in commaSeparatedBinaryExtensions.Split(','))
+      {
+        if (Path.GetExtension(filename) == extension)
+        {
+          return true;
+        }
+      }
+
+      return result;
+    }
   }
 }
