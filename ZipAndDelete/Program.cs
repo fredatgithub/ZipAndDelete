@@ -41,7 +41,7 @@ namespace ZipAndDelete
       int numberOfFilesZipped = 0;
       int numberOfFilesDeletedAfterBeingZipped = 0;
       bool hasExtraArguments = false;
-      string datedLogFileName = $"LogFile-{DateTime.Now.ToShortDateString().Replace('/', '-')}.log";
+      string datedLogFileName = $"ZipAndDeleteLogFile-{DateTime.Now.ToShortDateString().Replace('/', '-')}.log";
       bool deleteFileAfterBeingZipped = false;
 
       // we split arguments into the dictionary
@@ -101,6 +101,7 @@ namespace ZipAndDelete
       if (argumentDictionary["deleteaftercompression"].ToLower() == "true")
       {
         deleteFileAfterBeingZipped= true;
+        Log(datedLogFileName, "true", "The variable deleteFileAfterBeingZipped has been set to true so files will be deleted after being zipped.");
       }
 
       // zipping files start here
@@ -113,11 +114,13 @@ namespace ZipAndDelete
           {
             // zip the file
             ZipFiles(argumentDictionary["directory"], new List<string> { $"{filename}" }, $"{filename}.zip");
+            Log(datedLogFileName, "true", $"The file {filename} has been zipped, its new name is {filename}.zip");
             numberOfFilesZipped++;
 
             if (deleteFileAfterBeingZipped)
             {
               File.Delete($"{Path.Combine(argumentDictionary["directory"], $"{filename}")}");
+              Log(datedLogFileName, "true", $"The file {filename} has been deleted.");
               numberOfFilesDeletedAfterBeingZipped++;
             }
           }
@@ -125,17 +128,19 @@ namespace ZipAndDelete
           {
             // if no old extension is a star meaning it is for all files
             // We don't zip the application itself and its config file.
-            if (filename.ToLower() != "ZipAndDelete.exe" || filename.ToLower() != "ZipAndDelete.exe.config")
+            if (filename.ToLower() != "ZipAndDelete.exe" || filename.ToLower() != "ZipAndDelete.exe.config" || filename.ToLower() != "icsharpcode.sharpziplib.dll" || !filename.StartsWith("ZipAndDeleteLog"))
             {
               try
               {
                 // zip the file
                 ZipFiles(argumentDictionary["directory"], new List<string> { $"{filename}" }, $"{filename}.zip");
+                Log(datedLogFileName, "true", $"The file {filename} has been zipped, its new name is {filename}.zip");
                 numberOfFilesZipped++;
 
                 if (deleteFileAfterBeingZipped)
                 {
                   File.Delete($"{Path.Combine(argumentDictionary["directory"], $"{filename}")}");
+                  Log(datedLogFileName, "true", $"The file {filename} has been deleted.");
                   numberOfFilesDeletedAfterBeingZipped++;
                 }
               }
