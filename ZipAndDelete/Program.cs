@@ -29,7 +29,7 @@ namespace ZipAndDelete
         {"includesubdirectories", "false"},
         {"extensionfilenamepattern", "txt" },
         {"exclusionextensionfilenamepattern", "exe" }, // we could add ,config, dll
-        {"compressionlevel", "maximum" },
+        {"compressionlevel", "maximum9" },
         {"deleteaftercompression", "false" },
         {"addextensionifnone", "false" },
         {"extensiontobeaddedifnone", "txt" },
@@ -283,12 +283,10 @@ namespace ZipAndDelete
       display(string.Empty);
       display(
         "You can write argument name (not its value) in uppercase or lowercase or a mixed of them (case insensitive)");
-      display("/oldextension is the same as /OldExtension or /oldExtension or /OLDEXTENSION");
+      display("/compressionlevel is the same as /Compressionlevel or /CompressionLevel or /COMPRESSIONLEVEL");
       display(string.Empty);
-      display("/directory=<name of the directory where files to be renamed are> default is where RenameFiles.exe is");
+      display("/directory=<name of the directory where files to be zipped are> default is where ZipAndDelete.exe is");
       display("/includesubdirectories=<true or false> false by default");
-      display("/oldextension=<name of the old extension you want to rename from>");
-      display("/newextension=<name of the new extension you want to rename to>");
       display("/log=<true or false> false by default");
       display(string.Empty);
       display("Examples:");
