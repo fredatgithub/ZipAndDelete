@@ -214,7 +214,7 @@ namespace ZipAndDelete
       catch (Exception exception)
       {
         Console.WriteLine($"Exception found: {exception.Message}");
-        Console.WriteLine("press a key to continue to next exception");
+        Console.WriteLine("press any key to continue to next exception:");
         Console.ReadKey();
       }
       finally
@@ -276,7 +276,7 @@ namespace ZipAndDelete
       display(string.Empty);
       display("ZipAndDelete is a console application written by Freddy Juhel on the 21st of November 2022.");
       display($"ZipAndDelete.exe is in version {GetAssemblyVersion()}");
-      display("ZipAndDelete needs Microsoft .NET framework 4.7.2 to run, if you don't have it, download it from microsoft.com.");
+      display("ZipAndDelete needs Microsoft .NET framework 4.7.2 to run, if you don't have it, download it from www.microsoft.com.");
       display("Copyrighted (c) MIT 2022 by Freddy Juhel.");
       display(string.Empty);
       display("Usage of this program:");
@@ -290,7 +290,7 @@ namespace ZipAndDelete
         "You can write argument name (not its value) in uppercase or lowercase or a mixed of them (case insensitive)");
       display("/compressionlevel is the same as /Compressionlevel or /CompressionLevel or /COMPRESSIONLEVEL");
       display(string.Empty);
-      display("/directory=<name of the directory where files to be zipped are> default is where ZipAndDelete.exe is");
+      display("/directory=<name of the directory where files will be zipped> default is where ZipAndDelete.exe is");
       display("/includesubdirectories=<true or false> false by default");
       display("/log=<true or false> false by default");
       display(string.Empty);
