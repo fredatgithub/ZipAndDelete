@@ -314,8 +314,6 @@ namespace ZipAndDelete
       display(string.Empty);
       display(@"ZipAndDelete /directory=. /extensionfilenamepattern=txt /log=true");
       display(string.Empty);
-      display(@"ZipAndDelete / /=jpg");
-      display(string.Empty);
       display("ZipAndDelete /help (this help)");
       display("ZipAndDelete /? (this help)");
       display(string.Empty);
