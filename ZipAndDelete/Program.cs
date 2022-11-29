@@ -100,7 +100,7 @@ namespace ZipAndDelete
 
       if (argumentDictionary["deleteaftercompression"].ToLower() == "true")
       {
-        deleteFileAfterBeingZipped= true;
+        deleteFileAfterBeingZipped = true;
         Log(datedLogFileName, "true", "The variable deleteFileAfterBeingZipped has been set to true so files will be deleted after being zipped.");
       }
 
@@ -291,14 +291,23 @@ namespace ZipAndDelete
       display("/compressionlevel is the same as /Compressionlevel or /CompressionLevel or /COMPRESSIONLEVEL");
       display(string.Empty);
       display("/directory=<name of the directory where files will be zipped> default is where ZipAndDelete.exe is");
+      display(string.Empty);
       display("/includesubdirectories=<true or false> false by default");
+      display(string.Empty);
       display("/log=<true or false> false by default");
+      display(string.Empty);
       display("/extensionfilenamepattern=<any kind of extension file name> default is txt");
+      display(string.Empty);
       display("/exclusionextensionfilenamepattern=<any kind of extension file name> default is .exe,.dll,.config");
+      display(string.Empty);
       display("/compressionlevel=<any number between 0 to 9>, default is maximum9");
+      display(string.Empty);
       display("/deleteaftercompression=<true or false> default is false");
+      display(string.Empty);
       display("/addextensionifnone=<true or false> default is false");
+      display(string.Empty);
       display("/extensiontobeaddedifnone=<any kind of extension file name> default is txt");
+      display(string.Empty);
       display("/log=<true or false> default is false");
       display(string.Empty);
       display("Examples:");
@@ -318,7 +327,7 @@ namespace ZipAndDelete
       FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
       return string.Format("V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
     }
-    
+
     public static bool IsFileBinary(string filename, string commaSeparatedBinaryExtensions)
     {
       bool result = false;
