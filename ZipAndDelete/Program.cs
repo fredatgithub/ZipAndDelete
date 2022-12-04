@@ -115,12 +115,14 @@ namespace ZipAndDelete
             // zip the file
             ZipFiles(argumentDictionary["directory"], new List<string> { $"{filename}" }, $"{filename}.zip");
             Log(datedLogFileName, "true", $"The file {filename} has been zipped, its new name is {filename}.zip");
+            Display($"{datedLogFileName} - the file {filename} has been zipped, its new name is {filename}.zip");
             numberOfFilesZipped++;
 
             if (deleteFileAfterBeingZipped)
             {
               File.Delete($"{Path.Combine(argumentDictionary["directory"], $"{filename}")}");
               Log(datedLogFileName, "true", $"The file {filename} has been deleted.");
+              Display($"{datedLogFileName} - The file {filename} has been deleted.");
               numberOfFilesDeletedAfterBeingZipped++;
             }
           }
@@ -135,12 +137,14 @@ namespace ZipAndDelete
                 // zip the file
                 ZipFiles(argumentDictionary["directory"], new List<string> { $"{filename}" }, $"{filename}.zip");
                 Log(datedLogFileName, "true", $"The file {filename} has been zipped, its new name is {filename}.zip");
+                Display($"{datedLogFileName} - The file {filename} has been zipped, its new name is {filename}.zip");
                 numberOfFilesZipped++;
 
                 if (deleteFileAfterBeingZipped)
                 {
                   File.Delete($"{Path.Combine(argumentDictionary["directory"], $"{filename}")}");
                   Log(datedLogFileName, "true", $"The file {filename} has been deleted.");
+                  Display($"{datedLogFileName} - The file {filename} has been deleted.");
                   numberOfFilesDeletedAfterBeingZipped++;
                 }
               }
