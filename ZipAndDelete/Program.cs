@@ -343,5 +343,10 @@ namespace ZipAndDelete
 
       return result;
     }
+
+    public static string Tabulate(int numberOfSpace = 0)
+    {
+      return new String(' ', numberOfSpace);
+    }
   }
 }
