@@ -235,16 +235,16 @@ namespace ZipAndDelete
     private enum CompressionLevel
     {
       None = 10,
-      minimum0 = 0,
-      minimum1 = 1,
-      minimum2 = 2,
-      minimum3 = 3,
-      minimum4 = 4,
-      maximum5 = 5,
-      maximum6 = 6,
-      maximum7 = 7,
-      maximum8 = 8,
-      maximum9 = 9,
+      CompressionLevel0 = 0,
+      CompressionLevel1 = 1,
+      CompressionLevel2 = 2,
+      CompressionLevel3 = 3,
+      CompressionLevel4 = 4,
+      CompressionLevel5 = 5,
+      CompressionLevel6 = 6,
+      CompressionLevel7 = 7,
+      CompressionLevel8 = 8,
+      CompressionLevel9 = 9,
     }
 
     private static void Display(string message)
@@ -304,7 +304,7 @@ namespace ZipAndDelete
       display(string.Empty);
       display("/exclusionextensionfilenamepattern=<any kind of extension file name> default is .exe,.dll,.config");
       display(string.Empty);
-      display("/compressionlevel=<any number between 0 to 9>, default is maximum9");
+      display("/compressionlevel=<any number between 0 to 9>, default is 9");
       display(string.Empty);
       display("/deleteaftercompression=<true or false> default is false");
       display(string.Empty);
