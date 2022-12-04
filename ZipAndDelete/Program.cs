@@ -100,7 +100,7 @@ namespace ZipAndDelete
 
       if (argumentDictionary["deleteaftercompression"].ToLower() == "true")
       {
-        deleteFileAfterBeingZipped= true;
+        deleteFileAfterBeingZipped = true;
         Log(datedLogFileName, "true", "The variable deleteFileAfterBeingZipped has been set to true so files will be deleted after being zipped.");
       }
 
@@ -218,7 +218,7 @@ namespace ZipAndDelete
       catch (Exception exception)
       {
         Console.WriteLine($"Exception found: {exception.Message}");
-        Console.WriteLine("press a key to continue to next exception");
+        Console.WriteLine("press any key to continue to next exception:");
         Console.ReadKey();
       }
       finally
@@ -280,8 +280,8 @@ namespace ZipAndDelete
       display(string.Empty);
       display("ZipAndDelete is a console application written by Freddy Juhel on the 21st of November 2022.");
       display($"ZipAndDelete.exe is in version {GetAssemblyVersion()}");
-      display("ZipAndDelete needs Microsoft .NET framework 4.7.2 to run, if you don't have it, download it from microsoft.com.");
-      display("Copyrighted (c) MIT 2022 by Freddy Juhel.");
+      display("ZipAndDelete needs Microsoft .NET framework 4.7.2 to run, if you don't have it, download it from www.microsoft.com.");
+      display("Copyright (c) MIT 2022 by Freddy Juhel.");
       display(string.Empty);
       display("Usage of this program:");
       display(string.Empty);
@@ -294,15 +294,29 @@ namespace ZipAndDelete
         "You can write argument name (not its value) in uppercase or lowercase or a mixed of them (case insensitive)");
       display("/compressionlevel is the same as /Compressionlevel or /CompressionLevel or /COMPRESSIONLEVEL");
       display(string.Empty);
-      display("/directory=<name of the directory where files to be zipped are> default is where ZipAndDelete.exe is");
+      display("/directory=<name of the directory where files will be zipped> default is where ZipAndDelete.exe is");
+      display(string.Empty);
       display("/includesubdirectories=<true or false> false by default");
+      display(string.Empty);
       display("/log=<true or false> false by default");
+      display(string.Empty);
+      display("/extensionfilenamepattern=<any kind of extension file name> default is txt");
+      display(string.Empty);
+      display("/exclusionextensionfilenamepattern=<any kind of extension file name> default is .exe,.dll,.config");
+      display(string.Empty);
+      display("/compressionlevel=<any number between 0 to 9>, default is maximum9");
+      display(string.Empty);
+      display("/deleteaftercompression=<true or false> default is false");
+      display(string.Empty);
+      display("/addextensionifnone=<true or false> default is false");
+      display(string.Empty);
+      display("/extensiontobeaddedifnone=<any kind of extension file name> default is txt");
+      display(string.Empty);
+      display("/log=<true or false> default is false");
       display(string.Empty);
       display("Examples:");
       display(string.Empty);
       display(@"ZipAndDelete /directory=. /extensionfilenamepattern=txt /log=true");
-      display(string.Empty);
-      display(@"ZipAndDelete /oldextension=* /newextension=jpg");
       display(string.Empty);
       display("ZipAndDelete /help (this help)");
       display("ZipAndDelete /? (this help)");
@@ -315,7 +329,7 @@ namespace ZipAndDelete
       FileVersionInfo fvi = FileVersionInfo.GetVersionInfo(assembly.Location);
       return string.Format("V{0}.{1}.{2}.{3}", fvi.FileMajorPart, fvi.FileMinorPart, fvi.FileBuildPart, fvi.FilePrivatePart);
     }
-    
+
     public static bool IsFileBinary(string filename, string commaSeparatedBinaryExtensions)
     {
       bool result = false;
