@@ -281,7 +281,7 @@ namespace ZipAndDelete
       display("ZipAndDelete is a console application written by Freddy Juhel on the 20th of November 2022.");
       display($"ZipAndDelete.exe is in version {GetAssemblyVersion()}");
       display("ZipAndDelete needs Microsoft .NET framework 4.7.2 to run, if you don't have it, download it from www.microsoft.com.");
-      display("Copyright (c) MIT 2022 by Freddy Juhel.");
+      display($"Copyrighted (c) MIT 2022-{DateTime.Now.Year} by Freddy Juhel.");
       display(string.Empty);
       display("Usage of this program:");
       display(string.Empty);
